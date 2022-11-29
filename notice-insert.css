@@ -1,0 +1,65 @@
+body{
+    background-color: #FFF7DE;
+    font-family: 'Times New Roman';
+    margin: 0;
+}
+.notice{
+    width:98%;
+    height:30px;
+    background-color: #FFDE82;
+    font-size: 18px;
+    font-weight: bold;
+    text-align:left;
+    line-height: 34px;
+    padding-left:30px;
+}
+.logo{
+    font-size: 38px;
+    font-weight: bold;
+    text-align:left;
+    padding-left:50px;
+    padding-right:170px;
+ }
+ .notice button{
+    width: 70px;
+    height: 30px;
+    font-size:15px;
+    line-height:30px;
+    text-align:center;
+    background: #faeabc;
+    border: solid 2px black;
+    border-radius: 20px;
+    font-weight:bold;
+    float:right;
+  }
+  .writing-page{
+    width:100%;
+    height:600px;
+    background-color:#faeabc;
+    font-size:18px;
+  }
+  .head input{
+    width:500px;
+    height:30px;
+    background-color: #FFDE82;
+  }
+  .content input{
+    width:1300px;
+    height:400px;
+    background-color: #FFDE82;
+  }
+  .buttons button{
+    width: 100px;
+    height: 35px;
+    font-size:18px;
+    line-height:20px;
+    text-align:center;
+    background:  #dddddc;;
+    border: solid 2px black;
+}
+.buttons table{
+    border-spacing:30px;
+}
+.buttons{
+    padding-left:38%;
+}

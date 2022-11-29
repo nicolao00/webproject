@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+    <title>main page</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="notice.css">
+</head>
+<body>
+    <div class="contents">
+        <table>
+        <br>
+        <tr>
+        <td class="logo"><a href="#"><img src="images/mainimage.png" class="mainimage"> 허브레시피</a></td>
+        </tr>
+        </table>
+      </div>
+      <br><br>
+      <div class="notice">공지사항</div><br> 
+      <div class="search">
+        <form action="" method="">
+        <fieldset class="search-form">
+        <select name="type">                                                                                              
+            <option value='' selected>전체</option>
+            <option value='head'>제목</option>
+            <option value='writer'>작성자</option>                    
+        </select>
+        <input type="text" name="search_form" onKeypress="javascript:if(event.keyCode==13) {search_onclick_submit}"/>
+        </fieldset>
+        </form>                                                                                                        
+      </div>
+      <br>
+      <div>
+        <table class="mainboard">
+            <tr bgcolor="#f3e0ac">
+                <th>구분</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>조회수</th>
+            </tr>
+             <tr bgcolor="#FFDE82">
+                <td>공지사항</td>
+                <td><a href="#">게시판 이용 수칙</a></td>
+                <td>홍길동</td>
+                <td>2022-10-01</td>
+                <td>43,456</td>
+             </tr>
+             <tr bgcolor="#f3e0ac">
+                <td>공지사항</td>
+                <td><a href="#">서버 점검 안내</a></td>
+                <td>관리자</td>
+                <td>2022-10-05</td>
+                <td>23,253</td>
+             </tr>
+             <tr bgcolor="#FFDE82">
+                <td>공지사항</td>
+                <td><a href="#">레시피 커뮤니티 관련 공지</a></td>
+                <td>홍길동</td>
+                <td>2022-10-10</td>
+                <td>29,960</td>
+             </tr>
+        </table>
+      </div>
+      <br><br>
+      <div class="pageButton">
+        <a href="#" class="button first">&lt;&lt;</a>
+        <a href="#" class="button prev">&lt;</a>
+        <a href="#" class="num selected">1</a>
+        <a href="#" class="num">2</a>
+        <a href="#" class="num">3</a>
+        <a href="#" class="num">4</a>
+        <a href="#" class="num">5</a>
+        <a href="#" class="num">6</a>
+        <a href="#" class="num">7</a>
+        <a href="#" class="num">8</a>
+        <a href="#" class="num">9</a>
+        <a href="#" class="num">10</a>
+        <a href="#" class="button next">&gt;</a>
+        <a href="#" class="button last">&gt;&gt;</a>
+    </div>
+    <br>
+    <div class="owner" style="display:none;"><a href="#">글쓰기</a></div>
+</body>
+</html>
