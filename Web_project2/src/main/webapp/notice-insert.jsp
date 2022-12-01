@@ -1,19 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page import="java.sql.*"%>
-
 <%
 request.setCharacterEncoding("utf-8");
 %>
 <html>
 <head>
-<title>Insert title here</title>
-<link rel="stylesheet" href="board-insert.css">
+<title>main page</title>
+<link rel="stylesheet" href="notice-insert.css">
 </head>
 <body>
 	<div class="contents">
-		<br>
 		<table>
+			<br>
 			<tr>
 				<td class="logo"><a href="mainpage.jsp"><img
 						src="images/mainimage.png" class="mainimage"> 허브레시피</a></td>
@@ -22,21 +21,23 @@ request.setCharacterEncoding("utf-8");
 	</div>
 	<br>
 	<div class="notice">
-		게시판 > 글쓰기
+		공지사항 > 글쓰기
 		<button type="button" name="list"
-			onclick="location.href='board-list.jsp'">목록</button>
+			onclick="location.href='notice-list.jsp'">목록</button>
 	</div>
 	<br>
-	<form action="board-insert-db.jsp" method="post">
-		<div class="writing-page">
-			<table>
+	<div class="writing-page">
+		<form action="notice-insert-db.jsp" method="post">
+			<table cellspacing="20">
 				<tr>
 					<td>제목:</td>
-					<td class="head"><input type="text" name="title"></td>
+					<td class="head"><input type="text" name="title"
+						pattern=".{1,}" maxlength="40"></td>
 				</tr>
 				<tr>
 					<td>내용:</td>
-					<td class="content"><input type="text" name="content"></td>
+					<td class="content"><input type="text" name="content"
+						maxlength="500"></td>
 				</tr>
 			</table>
 			<div class="buttons">
@@ -46,8 +47,6 @@ request.setCharacterEncoding("utf-8");
 						<td><input type="reset" value="다시쓰기"></td>
 					</tr>
 				</table>
-			</div>
-		</div>
-	</form>
-</body>
-</html>
+		</form>
+	</div>
+	</div>

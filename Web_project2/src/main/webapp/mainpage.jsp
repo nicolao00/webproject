@@ -2,6 +2,7 @@
 	pageEncoding="utf-8"%>
 <%@ page import="java.sql.*"%>
 <%
+request.setCharacterEncoding("utf-8");
 Cookie[] cookies = request.getCookies();
 %>
 <html>
@@ -78,10 +79,27 @@ Cookie[] cookies = request.getCookies();
 		</table>
 		<table cellspacing="45" cellpadding="10" class="foods">
 			<tr>
-				<td><a href="#"><img src="images/menu1.png" class="food"><br>김치찌개</a></td>
-				<td><a href="#"><img src="images/menu2.png" class="food"><br>된장찌개</a></td>
-				<td><a href="#"><img src="images/menu3.png" class="food"><br>계란말이</a></td>
-				<td><a href="#"><img src="images/menu4.png" class="food"><br>김치볶음밥</a></td>
+				<%
+				Connection conn = null;
+				Statement stmt = null;
+				String sql = null;
+				ResultSet rs = null;
+				try {
+					Class.forName("com.mysql.jdbc.Driver");
+					String url = "jdbc:mysql://localhost:3306/webproject?serverTimezone=UTC";
+					conn = DriverManager.getConnection(url, "root", "0000");
+					stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+					sql = "select * from recipe order by view desc limit " + 4 + " offset " + 0;
+					rs = stmt.executeQuery(sql);
+				} catch (Exception e) {
+					out.println("DB 연동 오류입니다. : " + e.getMessage());
+				}
+				while (rs.next()) {
+				%>
+				<td><a href="recipe-read.jsp?id=<%=rs.getString("id")%>"><img src="recipefolder/<%=rs.getString("image") %>" class="food"><br><%=rs.getString("menu_name") %></a></td>
+				<%
+				}
+				%>
 			</tr>
 		</table>
 	</div>

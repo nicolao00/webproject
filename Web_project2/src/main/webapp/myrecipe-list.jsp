@@ -85,8 +85,8 @@ Cookie[] cookies = request.getCookies();
 			<tr>
 				<td align="center" height="40"><%=rownum%></td>
 				<td align="left" height="40"><a
-					href="myrecipe-read.jsp?id=<%=rs.getString("id")%>" width="250">
-						<%=rs.getString("title")%></a></td>
+					href="recipe-read.jsp?id=<%=rs.getString("id")%>" width="250">
+						<%=rs.getString("menu_name")%></a></td>
 				<td align="center" height="40"><%=rs.getString("name")%></td>
 				<td align="center" height="40"><%=rs.getString("date")%></td>
 			</tr>

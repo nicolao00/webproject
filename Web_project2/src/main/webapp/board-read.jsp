@@ -32,16 +32,14 @@ Cookie[] cookies = request.getCookies();
 	} catch (Exception e) {
 		out.println("DB 연동 오류입니다. : " + e.getMessage());
 	}
-	if (rs == null)
-		out.print("암됨");
-	else {
-		while (rs.next()) {
-			name = rs.getString("name");
-			title = rs.getString("title");
-			content = rs.getString("content");
-			ref = Integer.parseInt(rs.getString("ref"));
-			date = rs.getString("date");
-		}
+	if (rs != null) {
+		rs.next();
+		name = rs.getString("name");
+		title = rs.getString("title");
+		content = rs.getString("content");
+		ref = Integer.parseInt(rs.getString("ref"));
+		date = rs.getString("date");
+
 	}
 	%>
 	<table border="0">

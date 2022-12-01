@@ -50,10 +50,10 @@ request.setCharacterEncoding("utf-8");
 	} catch (Exception e) {
 		out.println("DB 연동 오류입니다.(1번) : " + e.getMessage());
 	}
-
-	while (rs.next()) {
-		if (id.equals(rs.getString("id"))) {
-			flag = true;
+	if (rs.next()) {
+		do {
+			if (id.equals(rs.getString("id"))) {
+		flag = true;
 	%>
 	<center>
 		<h2>중복된 아이디 입니다</h2>
@@ -71,6 +71,7 @@ request.setCharacterEncoding("utf-8");
 	<%
 	break;
 	}
+	} while (rs.next());
 	}
 
 	try {
@@ -79,8 +80,8 @@ request.setCharacterEncoding("utf-8");
 	} catch (Exception e) {
 	out.println("DB 연동 오류입니다.(1번) : " + e.getMessage());
 	}
-
-	while (rs.next()) {
+	if (rs.next()) {
+	do {
 	if (id.equals(rs.getString("id"))) {
 	flag = true;
 	%>
@@ -100,6 +101,7 @@ request.setCharacterEncoding("utf-8");
 	<%
 	break;
 	}
+	} while (rs.next());
 	}
 
 	if (flag == false) {
