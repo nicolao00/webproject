@@ -18,11 +18,12 @@ request.setCharacterEncoding("utf-8");
 	<%
 	Connection conn = null;
 	Statement stmt = null;
-	String sql = null;
+	String sql = null, sql2 = null;
 	ResultSet rs = null;
 	String name = getCookieValue(cookies, "NAME");
 	String id = getCookieValue(cookies, "ID");
 	String email = "";
+	int rownum = 0;
 	int year = 0, month = 0, date = 0;
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
@@ -30,12 +31,15 @@ request.setCharacterEncoding("utf-8");
 		conn = DriverManager.getConnection(url, "root", "0000");
 		stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 		sql = "select * from user where name='" + name + "'";
+		sql2 = "select * from recipe where name='" + name + "'";
 		rs = stmt.executeQuery(sql);
 		rs.next();
 		email = rs.getString("email");
 		year = Integer.parseInt(rs.getString("year"));
 		month = Integer.parseInt(rs.getString("month"));
 		date = Integer.parseInt(rs.getString("date"));
+		rs = stmt.executeQuery(sql2);
+		rownum = rs.getRow();
 	} catch (Exception e) {
 		out.println("DB 연동 오류입니다. : " + e.getMessage());
 	}
@@ -59,7 +63,7 @@ request.setCharacterEncoding("utf-8");
 			<div class="section_content">
 				<div class="section_subTitle">레시피</div>
 				<ul>
-					<li>My 레시피</li>
+					<li><a href= "myrecipe-list.jsp">My 레시피</a></li>
 					<li>좋아요 누른 레시판</li>
 				</ul>
 			</div>
@@ -75,7 +79,7 @@ request.setCharacterEncoding("utf-8");
 				<table>
 					<tr>
 						<td>올린글</td>
-						<td>15개</td>
+						<td><%=rownum%>개</td>
 					</tr>
 					<tr>
 						<td>아이디</td>

@@ -72,10 +72,12 @@ Cookie[] cookies = request.getCookies();
 	content = multi.getParameter("menu_explain");
 	String ingredient[] = multi.getParameterValues("ingredient");
 	String amount[] = multi.getParameterValues("amount");
+
 	for (i = 0; i < ingredient.length; i++) {
 		totalin = totalin + ingredient[i] + "/" + amount[i] + "&";
 	}
 	String step_explain[] = multi.getParameterValues("step_explain");
+
 	for (i = 0; i < step_explain.length; i++) {
 		totalstep = totalstep + step_explain[i] + "&";
 	}
@@ -129,6 +131,7 @@ Cookie[] cookies = request.getCookies();
 			}
 		}
 	}
+	response.sendRedirect("recipepage.jsp");
 	%>
 	<script>
 		//location.href = "question_board.jsp";

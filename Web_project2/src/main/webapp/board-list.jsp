@@ -58,7 +58,7 @@ Cookie[] cookies = request.getCookies();
 				conn = DriverManager.getConnection(url, "root", "0000");
 				stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 				sql = "select * from board order by ref desc, id asc limit " + fpage + " offset " + bpage;
-				sql2 = "select * from board order by ref desc, id asc limit";
+				sql2 = "select * from board order by ref desc, id asc";
 				rs = stmt.executeQuery(sql);
 			} catch (Exception e) {
 				out.println("DB 연동 오류입니다. : " + e.getMessage());

@@ -49,7 +49,7 @@ Cookie[] cookies = request.getCookies();
 <body>
 	<div id="wrap">
 		<div id="head">
-			<img src="DB에서 새싹 사진 가져와">허브레시피
+			<img src="DB에서 새싹 사진 가져와"><a href="mainpage.jsp">허브레시피</a>
 		</div>
 
 		<div id="title">레시피 등록</div>
@@ -87,6 +87,11 @@ Cookie[] cookies = request.getCookies();
 					<tr>
 						<td class="type_name">상세 설명<br> <br> <input
 							type="button" value="단계 추가" id="add_step"></td>
+						<td class="type_context"><textarea name="step_explain"> </textarea></td>
+						<td class="type_context"><input type="file" value="사진 추가" name="step_image0"
+							onchange="setThumbnail(event);"><br> <br> <input
+							type="file" value="동영상 추가"
+							accept="image/gif,image/jpeg,image/png"></td>
 					</tr>
 				</table>
 				<table>

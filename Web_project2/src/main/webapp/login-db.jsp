@@ -30,29 +30,24 @@ request.setCharacterEncoding("utf-8");
 
 	while (rs.next()) {
 		if (id.equals(rs.getString("id")) && passwd.equals(rs.getString("passwd"))) {
-	%>
-	<center>
-		<h2>로그인 완료!</h2>
-		<a href="mainpage.jsp">메인으로 가기</a>
-	</center>
-	<%
-	flag = true;
-	response.addCookie(new Cookie("NAME", rs.getString("name")));
-	response.addCookie(new Cookie("E_MAIL", rs.getString("email")));
-	response.addCookie(new Cookie("ID", rs.getString("id")));
-	if(session.isNew()){
-		session.setAttribute("id",id);
-	}
-	}
+			flag = true;
+			response.addCookie(new Cookie("NAME", rs.getString("name")));
+			response.addCookie(new Cookie("E_MAIL", rs.getString("email")));
+			response.addCookie(new Cookie("ID", rs.getString("id")));
+			if (session.isNew()) {
+		session.setAttribute("id", id);
+			}
+			response.sendRedirect("mainpage.jsp");
+		}
 	}
 	try {
-	String sql2 = "select * from manager where id='" + id + "'";
-	rs2 = stmt.executeQuery(sql2);
+		String sql2 = "select * from manager where id='" + id + "'";
+		rs2 = stmt.executeQuery(sql2);
 	} catch (Exception e) {
-	out.println("DB 연동 오류입니다. : " + e.getMessage());
+		out.println("DB 연동 오류입니다. : " + e.getMessage());
 	}
 	while (rs2.next()) {
-	if (id.equals(rs2.getString("id")) && passwd.equals(rs2.getString("passwd"))) {
+		if (id.equals(rs2.getString("id")) && passwd.equals(rs2.getString("passwd"))) {
 	%>
 	<center>
 		<h2>로그인 완료!</h2>
